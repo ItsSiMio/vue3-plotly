@@ -32,7 +32,7 @@ const events = names.map(evt => evt.toLocaleLowerCase())
 .map(eventName => ({
   completeName: "plotly_" + eventName,
   handler: (ctx) => (...args) => {
-    ctx.$emit.apply(ctx, [eventName, ...args]);
+    ctx.$emit.apply(ctx, [`plotly-${eventName}`, ...args]);
   }
 }));
 
